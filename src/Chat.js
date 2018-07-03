@@ -34,17 +34,18 @@ class Chat extends Component {
         }
     }
 
-    addMessage = () => {
+    addMessage = (body) => {
         const messages = [...this.state.messages] //made copy of new array
+        const user = {
+            uid: 'fjdfjgnsd',
+                displayName: 'FFFFF',
+                email: 'fffff@meme.com',
+        }
 
         messages.push({
             id: Date.now(),
-            user: {
-                uid: 'fjdfjgnsd',
-                displayName: 'FFFFF',
-                email: 'fffff@meme.com',
-            },
-            body: "mammaamama",
+            user,
+            body: body, //passed in argument
         })
 
         //update state with changes
