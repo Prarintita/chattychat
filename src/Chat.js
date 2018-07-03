@@ -33,12 +33,30 @@ class Chat extends Component {
         
         }
     }
+
+    addMessage = () => {
+        const messages = [...this.state.messages] //made copy of new array
+
+        messages.push({
+            id: Date.now(),
+            user: {
+                uid: 'fjdfjgnsd',
+                displayName: 'FFFFF',
+                email: 'fffff@meme.com',
+            },
+            body: "mammaamama",
+        })
+
+        //update state with changes
+        this.setState({messages: messages})
+    }
+
     render() {
         return (
             <div className="Chat">
                 <ChatHeader />
                 <MessageList messages={this.state.messages}/>
-                <MessageForm />
+                <MessageForm addMessage={this.addMessage} />
             </div>
         )
     }

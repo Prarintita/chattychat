@@ -1,15 +1,20 @@
 import React, {Component} from 'react'
 
 class MessageForm extends Component {
+    handleSubmit = (event) => {
+        event.preventDefault()
+        this.props.addMessage()
+    }
+
     render() {
         return (
-            <form className="MessageForm">
+            <form className="MessageForm" onSubmit={this.handleSubmit}>
                 <input 
                     autoFocus
                     required
                     type="text"
                     name="body"
-                    placeHolder="Type a message..."
+                    placeholder="Type a message..."
                 />
                 <button type="submit">
                     Send
