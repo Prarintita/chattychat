@@ -11,19 +11,19 @@ class App extends Component {
 
     this.state = {
       user: {
-        uid: 'ldlldlsls',
-        displayName: 'madjw',
-        email: 'mjawhdaw@meme.com',
+        
       },
     }
   }
 
-
+  handleAuth = (user) => {
+    this.setState({user: user})
+  }
 
   render() {
     return (
       <div className="App">
-        <Opening />
+        <SignIn handleAuth={this.handleAuth} />
       </div>
     );
   }

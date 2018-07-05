@@ -3,36 +3,51 @@ import React, { Component } from 'react'
 import Main from './Main'
 
 class SignIn extends Component {
-    constructor(props) {
-        super(props)
+    // constructor(props) {
+    //     super(props)
 
-        this.state = {
-            value: "",
-        }
+    //     this.state = {
+    //         value: "",
+    //     }
 
-        this.handleChange = this.handleChange.bind(this)
-        this.handleSubmit = this.handleSubmit.bind(this)
+    //     this.handleChange = this.handleChange.bind(this)
+    //     this.handleSubmit = this.handleSubmit.bind(this)
+    // }
+    
+    handleChange = (event) => {
+        this.setState({email: event.target.value})
     }
     
-    handleChange(event) {
-        this.setState({value: event.target.value})
-    }
-    
-    handleSubmit(event) {
+    handleSubmit = (event) => {
         event.preventDefault();
-
-        //go to main page?
-        <Main user={this.state.value} /> 
+        this.props.handleAuth({
+            uid: `${this.state.email}-asdf`,
+            email: this.state.email,
+            displayName: this.state.email,
+        })
     }
     
+    state = {
+        email: '',
+    }
+
     render() {
         return(
-            <div>
-            <h1 style={styles.h1}>Welcome!</h1>
-            <form onSubmit={this.handleSubmit} style={styles.form} >
-                <input type="text" value={this.state.value} onChange={this.handleChange} placeholder="Username or email"/>
-                <input type="submit" value="Log In" style={styles.button} />
-            </form> 
+            <div className="SignIn">
+                <h1 style={styles.h1}>Welcome!</h1>
+                <form onSubmit={this.handleSubmit}>
+                    <label htmlFor="email">Email</label>
+                    <input 
+                        type="email" 
+                        name="email" 
+                        value={this.state.emaile} 
+                        onChange={this.handleChange} 
+                        placeholder="Username or email" 
+                        required 
+                        autoFocus 
+                    />
+                <button type="submit">Sign In</button>
+            </form>
             </div>
         )
     }
