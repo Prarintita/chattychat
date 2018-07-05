@@ -3,10 +3,7 @@ import { StyleSheet, css } from 'aphrodite'
 
 const RoomList = () => {
     return (
-        <nav
-            className={`RoomList ${css(styles.roomList)}`}
-            style={styles.children}
-        >
+        <nav className={`RoomList ${css(styles.roomList)}`}>
             <h2 className={css(styles.h2)}>Rooms</h2>
             <ul className={css(styles.list)}>
                 <li className={css(styles.item)}><a href="#" style={css(styles.link)}>general</a></li>

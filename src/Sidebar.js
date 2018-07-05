@@ -6,13 +6,12 @@ import RoomList from './RoomList'
 const Sidebar = (props) => {
   return (
     <aside
-      className="Sidebar"
-      style={styles.sidebar}
+        className="Sidebar"
+        style={styles.sidebar}
     >
-      <UserInfo user={props.user} />
-      <h1 style={styles.h1}>XTBC 18</h1>
+        <UserInfo user={props.user} />
+        <h1 style={styles.h1}>XTBC 18</h1>
         <RoomList />
-
     </aside>
   )
 }
