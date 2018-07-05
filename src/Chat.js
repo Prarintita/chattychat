@@ -9,28 +9,7 @@ class Chat extends Component {
         super()
 
         this.state = {
-            messages: [
-                {
-                    id: 1, 
-                    user: {
-                        uid: 'skadnwjndaj', 
-                        displayName: 'Ada', 
-                        email: 'ada@haha.com',
-                        },
-                    body: 'chatchat',
-                },
-        
-                {
-                    id: 2,
-                    user: {
-                        uid: 'ajdwnadaw',
-                        displayName: 'Seeek',
-                        email: 'seek@kaka.com',
-                    },
-                    body: 'This is great!',
-                },
-            ]
-        
+            messages: [],
         }
     }
 
@@ -40,7 +19,7 @@ class Chat extends Component {
 
         messages.push({
             id: `${user.uid}-${Date.now()}`,
-            user,
+            user: user,
             body: body, //passed in argument
         })
 
