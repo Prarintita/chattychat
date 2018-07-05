@@ -7,7 +7,6 @@ class SignIn extends Component {
         super(props)
 
         this.state = {
-            user: "",
             value: "",
         }
 
@@ -21,8 +20,9 @@ class SignIn extends Component {
     
     handleSubmit(event) {
         event.preventDefault();
+
         //go to main page?
-        <Main user={this.state.user} />
+        <Main user={this.state.value} /> 
     }
     
     render() {
