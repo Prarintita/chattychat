@@ -2,10 +2,11 @@ import React, { Component } from 'react'
 
 import { StyleSheet, css } from 'aphrodite'
 
-const SignOut = () => {
+const SignOut = ({signOut}) => {
     return (
         <button
             className={css(styles.button)} //gives right className back
+            onCLick={signOut}
         >
             <i className="fas fa-sign-out-alt"></i>
         </button>

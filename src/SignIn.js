@@ -3,17 +3,6 @@ import React, { Component } from 'react'
 import Main from './Main'
 
 class SignIn extends Component {
-    // constructor(props) {
-    //     super(props)
-
-    //     this.state = {
-    //         value: "",
-    //     }
-
-    //     this.handleChange = this.handleChange.bind(this)
-    //     this.handleSubmit = this.handleSubmit.bind(this)
-    // }
-    
     handleChange = (event) => {
         this.setState({email: event.target.value})
     }
