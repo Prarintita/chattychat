@@ -1,6 +1,6 @@
-import React, { Component } from 'react';
+import React, { Component } from 'react'
 
-import './App.css';
+import './App.css'
 import Main from './Main'
 import SignIn from './SignIn'
 
@@ -13,8 +13,21 @@ class App extends Component {
     const user = JSON.parse(localStorage.getItem('user'))
 
     this.state = {
-      user: user || {}, //in case there is nothing in local storage
+      user: user || {},
     }
+  }
+
+  componentDidMount() {
+    auth.onAuthStateChanged(
+      user => {
+        if (user) {
+          // User is signed in.
+          this.handleAuth(user)
+        } else {
+          // No user is signed in.
+          this.handleUnauth()
+        }
+    })
   }
 
   handleAuth = (oAuthUser) => {
@@ -24,7 +37,7 @@ class App extends Component {
       email: oAuthUser.email,
       photoUrl: oAuthUser.photoURL,
     }
-    this.setState({user: user})
+    this.setState({ user })
     localStorage.setItem('user', JSON.stringify(user))
   }
 
@@ -34,17 +47,27 @@ class App extends Component {
 
   signOut = () => {
     auth.signOut()
-    this.setState({user: {}})
+  }
+
+  handleUnauth = () => {
+    this.setState({ user: {} })
     localStorage.removeItem('user')
   }
 
   render() {
     return (
       <div className="App">
-        {this.signedIn() ? <Main user={this.state.user} signOut={this.signOut}/> : <SignIn handleAuth={this.handleAuth} />}
+        {
+          this.signedIn()
+            ? <Main
+                user={this.state.user}
+                signOut={this.signOut}
+              />
+            : <SignIn />
+        }
       </div>
-    );
+    )
   }
 }
 
-export default App;
+export default App

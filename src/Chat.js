@@ -6,7 +6,6 @@ import MessageForm from './MessageForm'
 
 import base from './base'
 
-
 class Chat extends Component {
     constructor() {
         super()
@@ -17,7 +16,7 @@ class Chat extends Component {
     }
 
     componentDidMount() {
-        this.messageRef = base.syncState(
+        this.messagesRef = base.syncState(
             'messages/general',
             {
                 context: this,
@@ -28,7 +27,7 @@ class Chat extends Component {
     }
 
     componentWillUnmount() {
-        base.removeBinding(this.messageRef)
+        base.removeBinding(this.messagesRef)
     }
 
     addMessage = (body) => {
