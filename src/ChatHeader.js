@@ -1,6 +1,6 @@
 import React from 'react'
 
-const ChatHeader = (props) => { //a function that returns jsx
+const ChatHeader = ({room}) => { //a function that returns jsx
     return (
         <header className="ChatHeader" style={styles.header}>
             <div className="roomInfo">

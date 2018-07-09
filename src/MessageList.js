@@ -2,16 +2,16 @@ import React from 'react'
 
 import Message from './Message'
 
-const MessageList = (props) => {
+const MessageList = ({messages, room}) => {
     return (
         <div className="MessageList" style={styles.messageList}>
             <div style={styles.roomAnnouncement}>
-                <h3 style={styles.roomAnnouncementh3}>{this.props.room.name}</h3>
-                <p>{this.props.room.desc}</p>
+                <h3 style={styles.roomAnnouncementh3}>#{room.name}</h3>
+                <p>{room.desc}</p>
             </div>
 
             {
-                props.messages.map(msg => 
+                messages.map(msg => 
                 (<Message message={msg} key={msg.id} />)
                 )
             }
