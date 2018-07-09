@@ -9,6 +9,16 @@ const config = {
     storageBucket: "YOUR STORAGE BUCKET",
     messagingSenderId: "YOUR MESSAGE SENDER ID"
   };
-  firebase.initializeApp(config);
+firebase.initializeApp(config);
 
-  const app = firebase.initializeApp(config)
+const app = firebase.initializeApp(config)
+
+// Configure authentication
+export const googleProvider = new firebase.auth.GoogleAuthProvider()
+export const githubProvider = new firebase.auth.GithubAuthProvider()
+export const auth = firebase.auth()
+
+// Configure database and Rebase
+const db = firebase.database(app)
+const base = Rebase.createClass(db)
+export default base
