@@ -1,17 +1,14 @@
 import React from 'react'
 
-//class ChatHeader extends Component {
-const ChatHeader = () => { //a function that returns jsx
-//    render() {
-        return (
-            <header className="ChatHeader" style={styles.header}>
-                <div className="roomInfo">
-                    <h2 style={styles.h2}>#general</h2>
-                    <p style={styles.p}>Announcements and general chat</p>
-                </div>
-            </header>
-        )
-//    }
+const ChatHeader = (props) => { //a function that returns jsx
+    return (
+        <header className="ChatHeader" style={styles.header}>
+            <div className="roomInfo">
+                <h2 style={styles.h2}>#{room.name}</h2>
+                    <p style={styles.p}>{room.desc}</p>
+            </div>
+        </header>
+    )
 }
 
 const styles = {

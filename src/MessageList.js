@@ -6,8 +6,8 @@ const MessageList = (props) => {
     return (
         <div className="MessageList" style={styles.messageList}>
             <div style={styles.roomAnnouncement}>
-                <h3 style={styles.roomAnnouncementh3}>#general</h3>
-                <p>This is the very beginning of the #general room.</p>
+                <h3 style={styles.roomAnnouncementh3}>{this.props.room.name}</h3>
+                <p>{this.props.room.desc}</p>
             </div>
 
             {
