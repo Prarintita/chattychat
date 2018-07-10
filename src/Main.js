@@ -6,24 +6,24 @@ import Chat from './Chat'
 class Main extends Component {
   state = {
     room: {
-      name: 's3afternoon',
-      description: 'Ask questions and share code',
+        name: 's3afternoon',
+        desc: 'Ask questions and share code',
     },
 
     rooms: {
       s3afternoon: {
         name: 's3afternoon',
-        description: 'Ask questions and share code',
+        desc: 'Ask questions and share code',
       },
 
       general: {
         name: 'general',
-        description: 'Chat about whatever',
+        desc: 'Chat about whatever',
       },
 
       random: {
         name: 'random',
-        description: 'Cat GIFs, etc.',
+        desc: 'Cat GIFs, etc.',
       },
     },
   }
@@ -40,6 +40,7 @@ class Main extends Component {
           user={this.props.user}
           signOut={this.props.signOut}
           rooms={this.state.rooms}
+          setCurrentRoom={this.setCurrentRoom}
         />
         <Chat
           user={this.props.user}
